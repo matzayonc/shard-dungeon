@@ -5,11 +5,14 @@
 /// Currently, this contract is being deployed by Sozo during `sozo migrate apply`.
 /// We may skip this contract deployment and let the shard doing so. We only need it
 /// to be declared.
+use option::{Option, OptionTrait};
+use result::Result;
 
 #[dojo::interface]
 trait IHazardHall {
     /// Strikes the hall boss.
-    fn fate_strike(ref world: IWorldDispatcher);
+    fn fate_strike(ref world: IWorldDispatcher) -> Result<(), ()>;
+    fn enter_dungeon(ref world: IWorldDispatcher) -> Result<(), ()>;
 }
 
 #[dojo::contract]
@@ -38,13 +41,29 @@ mod hazard_hall {
 
     #[abi(embed_v0)]
     impl HazardHallImpl of IHazardHall<ContractState> {
-        fn fate_strike(ref world: IWorldDispatcher) {
+        fn enter_dungeon(ref world: IWorldDispatcher) -> Result<(), ()> {
+            let player = utils::get_player_address();
+            let mut inventory = get!(world, player, (Inventory));
+
+            if inventory.locked.is_some() {
+                return Result::Err(());
+            }
+
+            inventory.locked = Option::Some(inventory.gold);
+            Result::Ok(())
+        }
+
+        fn fate_strike(ref world: IWorldDispatcher) -> Result<(), ()> {
             let player = utils::get_player_address();
             let block_timestamp = starknet::get_block_info().unbox().block_timestamp;
 
             let has_won = block_timestamp % 2 == 0;
 
             let (mut inventory, mut stats) = get!(world, player, (Inventory, Stats));
+
+            if inventory.locked.is_none() {
+                return Result::Err(());
+            }
 
             if has_won {
                 inventory.gold += 10;
@@ -55,6 +74,8 @@ mod hazard_hall {
 
             set!(world, (inventory, stats));
             emit!(world, (Event::EndOfDungeon(EndOfDungeon { player, has_won })));
+
+            Result::Ok(())
         }
     }
 }
