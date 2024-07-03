@@ -7,5 +7,4 @@ pub struct Inventory {
     #[key]
     pub player: ContractAddress,
     pub gold: u64,
-    pub locked: Option<u64>,
 }
