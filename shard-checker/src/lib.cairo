@@ -21,20 +21,29 @@ fn main(input: Array<felt252>) -> Array<felt252> {
     let mut input = input.span();
     let mut calls = Serde::<Array<Call>>::deserialize(ref input).unwrap();
 
+    let mut diffs = array![];
+
     loop {
         let call = match calls.pop_front() {
             Option::Some(call) => call,
             Option::None => { break; },
         };
+
+        let _contract = *call.calldata.at(1);
+        let method = *call.calldata.at(2);
+
+        if method == 138085521528844465635707021766388533460333160809770824619362347246155055131 {
+            diffs.append_span(fate_strike(call));
+        }
     };
 
     let mut output = array![];
-    // array![Diff { key:  }].serialize(ref output);
+    diffs.serialize(ref output);
     output
 }
 
 fn fate_strike(call: Call) -> Span<Diff> {
-    array![].span()
+    array![Diff { key: 1, value: 2 }].span()
 }
 
 
@@ -84,7 +93,7 @@ mod tests {
             0
         ];
 
-        assert_eq!(main(args), array![]);
+        assert_eq!(main(args).len(), 5);
     }
 }
 
