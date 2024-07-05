@@ -37,6 +37,36 @@ sozo execute shard_dungeon::systems::metagame::metagame register_player -c str:p
 sozo execute shard_dungeon::systems::hazard_hall::hazard_hall fate_strike
 ```
 
+### Recompile checker program
+
+Install compiler if not installed.
+
+```bash
+CARGO_NET_GIT_FETCH_WITH_CLI=true cargo install --git https://github.com/cartridge-gg/stone-prover.git --branch docker/both-cairo-versions cairo1-compile --locked --force
+```
+
+Then compile and pass to saya.
+
+```bash
+cairo1-compile compile src/lib.cairo > cairo1checker.json
+```
+
+### Test checker
+
+Install the prover client.
+
+```bash
+CARGO_NET_GIT_FETCH_WITH_CLI=true cargo install --git https://github.com/neotheprogramist/http-prover.git --locked --force cairo-prove
+
+```
+
+Now prepare input and prove.
+
+```bash
+cairo1-compile merge cairo1checker.json checker_args.json > checker_input.json
+cairo-prove --key <AUTHORIZED_PRIVATE_KEY> --url http://prover.visoft.dev:3618 -c 1 < checker_input.json
+```
+
 ## Architecture
 
 The idea of the demonstration is to have a metagame on Starknet, where players can register and then start a dungeon. For now, the dungeon is single player.
@@ -44,6 +74,10 @@ The idea of the demonstration is to have a metagame on Starknet, where players c
 The shard execution must start the dungeon run, the player has to interact with the shard to effectively finish beat the dungeon's boss.
 
 Once the dungeon is over, Saya must have all the necessary info to update the world state on the base layer.
+
+### Checker programs
+
+To validate that all actions are valid, operator will extract all calls from transaction and run them again in the checker program. The diff from the checker will then be committed to the upstream chain.
 
 ### Managing conflicts
 
