@@ -1,0 +1,142 @@
+[world]
+kind = "WorldContract"
+class_hash = "0x76ced5a15cb43c7be7176cff4779cd57c56638a46ddf2c9da709d22298c5e5a"
+original_class_hash = "0x76ced5a15cb43c7be7176cff4779cd57c56638a46ddf2c9da709d22298c5e5a"
+abi = "manifests/dev/deployment/abis/dojo-world.json"
+address = "0x29843b0e20802c0147b8c5cb51a7964aa4c0f0ccd14a1b329c73615ad510822"
+transaction_hash = "0x4257569b9046745ba076905e353f367b4fa4bf39a8aa28037795868529b87b"
+seed = ""
+manifest_name = "dojo-world"
+
+[world.metadata]
+profile_name = "dev"
+rpc_url = "https://free-rpc.nethermind.io/sepolia-juno/v0_7"
+
+[base]
+kind = "Class"
+class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
+original_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
+abi = "manifests/dev/deployment/abis/dojo-base.json"
+tag = "dojo-base"
+manifest_name = "dojo-base"
+
+[[contracts]]
+kind = "DojoContract"
+class_hash = "0x31f03f7b590abc574320952586999d48ee777317f4e77edc6e146c93f1a887b"
+original_class_hash = "0x31f03f7b590abc574320952586999d48ee777317f4e77edc6e146c93f1a887b"
+base_class_hash = "0x0"
+abi = "manifests/dev/deployment/abis/contracts/dojo-hazard_hall-4983721a.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "dojo-hazard_hall"
+manifest_name = "dojo-hazard_hall-4983721a"
+
+[[contracts]]
+kind = "DojoContract"
+class_hash = "0x10673f1afd25b7b1639f1175b9329450b375f74d1c4cc58bd1bb6ece2bd15aa"
+original_class_hash = "0x10673f1afd25b7b1639f1175b9329450b375f74d1c4cc58bd1bb6ece2bd15aa"
+base_class_hash = "0x0"
+abi = "manifests/dev/deployment/abis/contracts/dojo-metagame-7784241a.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "dojo-metagame"
+manifest_name = "dojo-metagame-7784241a"
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x176d6ba845841e7223b67a98a7a232963b9bbc8476b856f9554959b47c50b82"
+original_class_hash = "0x176d6ba845841e7223b67a98a7a232963b9bbc8476b856f9554959b47c50b82"
+abi = "manifests/dev/deployment/abis/models/dojo-Dungeon-4152df6a.json"
+tag = "dojo-Dungeon"
+manifest_name = "dojo-Dungeon-4152df6a"
+
+[[models.members]]
+name = "player"
+type = "ContractAddress"
+key = true
+
+[[models.members]]
+name = "moves"
+type = "u16"
+key = false
+
+[[models.members]]
+name = "boss_health"
+type = "u8"
+key = false
+
+[[models.members]]
+name = "gained_experience"
+type = "u64"
+key = false
+
+[[models.members]]
+name = "gold_in_purse"
+type = "u64"
+key = false
+
+[[models.members]]
+name = "starting_gold"
+type = "u64"
+key = false
+
+[[models.members]]
+name = "minimum_gold"
+type = "u64"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x3075508bfe54bd4eb4b119ca418a01e615d8cb4b8b2a166813d6d4868cd5e5e"
+original_class_hash = "0x3075508bfe54bd4eb4b119ca418a01e615d8cb4b8b2a166813d6d4868cd5e5e"
+abi = "manifests/dev/deployment/abis/models/dojo-Inventory-799df72d.json"
+tag = "dojo-Inventory"
+manifest_name = "dojo-Inventory-799df72d"
+
+[[models.members]]
+name = "player"
+type = "ContractAddress"
+key = true
+
+[[models.members]]
+name = "gold"
+type = "u64"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x122642b5ddaf94ffec9bf16819c5bfd8ac54607b1a1146d77ce3a9395b95b77"
+original_class_hash = "0x122642b5ddaf94ffec9bf16819c5bfd8ac54607b1a1146d77ce3a9395b95b77"
+abi = "manifests/dev/deployment/abis/models/dojo-Profile-72b1e9a8.json"
+tag = "dojo-Profile"
+manifest_name = "dojo-Profile-72b1e9a8"
+
+[[models.members]]
+name = "player"
+type = "ContractAddress"
+key = true
+
+[[models.members]]
+name = "name"
+type = "ByteArray"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x4b2525a2f4289fbceec1415bf8fc0976b720ff63b81eec69b8c1797341f231d"
+original_class_hash = "0x4b2525a2f4289fbceec1415bf8fc0976b720ff63b81eec69b8c1797341f231d"
+abi = "manifests/dev/deployment/abis/models/dojo-Stats-3a7aa82e.json"
+tag = "dojo-Stats"
+manifest_name = "dojo-Stats-3a7aa82e"
+
+[[models.members]]
+name = "player"
+type = "ContractAddress"
+key = true
+
+[[models.members]]
+name = "experience"
+type = "u64"
+key = false

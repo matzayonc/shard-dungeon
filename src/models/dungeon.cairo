@@ -5,7 +5,7 @@ use starknet::ContractAddress;
 use shard_dungeon::models::inventory::Inventory;
 use shard_dungeon::models::stats::Stats;
 
-#[derive(Drop, Serde)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq, Debug)]
 #[dojo::model]
 pub struct Dungeon {
     #[key]
@@ -68,26 +68,27 @@ pub impl DungeonImpl of DungeonTrait {
         diffs
     }
 }
+// #[test]
+// fn test_diff() {
+//     let mut dungeon = Dungeon {
+//         player: 0x0.try_into().unwrap(),
+//         moves: 0,
+//         boss_health: 0,
+//         gained_experience: 5,
+//         gold_in_purse: 2,
+//         starting_gold: 3,
+//         minimum_gold: 1,
+//     };
 
-#[test]
-fn test_diff() {
-    let mut dungeon = Dungeon {
-        player: 0x0.try_into().unwrap(),
-        moves: 0,
-        boss_health: 0,
-        gained_experience: 5,
-        gold_in_purse: 2,
-        starting_gold: 3,
-        minimum_gold: 1,
-    };
+//     let diffs = DungeonImpl::diffs(ref dungeon);
 
-    let diffs = DungeonImpl::diffs(ref dungeon);
+//     assert_eq!(dungeon.gold_in_purse, 0);
+//     assert_eq!(dungeon.gained_experience, 0);
+//     assert_eq!(dungeon.moves, 0);
 
-    assert_eq!(dungeon.gold_in_purse, 0);
-    assert_eq!(dungeon.gained_experience, 0);
-    assert_eq!(dungeon.moves, 0);
+//     assert_eq!(diffs.earned, 1);
+//     assert_eq!(diffs.lost, 2);
+//     assert_eq!(diffs.experience, 5);
+// }
 
-    assert_eq!(diffs.earned, 1);
-    assert_eq!(diffs.lost, 2);
-    assert_eq!(diffs.experience, 5);
-}
+

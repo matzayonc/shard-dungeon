@@ -1,0 +1,10 @@
+kind = "DojoContract"
+class_hash = "0x10673f1afd25b7b1639f1175b9329450b375f74d1c4cc58bd1bb6ece2bd15aa"
+original_class_hash = "0x10673f1afd25b7b1639f1175b9329450b375f74d1c4cc58bd1bb6ece2bd15aa"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/dojo-metagame-7784241a.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "dojo-metagame"
+manifest_name = "dojo-metagame-7784241a"

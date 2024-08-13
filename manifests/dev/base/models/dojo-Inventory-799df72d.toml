@@ -1,0 +1,16 @@
+kind = "DojoModel"
+class_hash = "0x3075508bfe54bd4eb4b119ca418a01e615d8cb4b8b2a166813d6d4868cd5e5e"
+original_class_hash = "0x3075508bfe54bd4eb4b119ca418a01e615d8cb4b8b2a166813d6d4868cd5e5e"
+abi = "manifests/dev/base/abis/models/dojo-Inventory-799df72d.json"
+tag = "dojo-Inventory"
+manifest_name = "dojo-Inventory-799df72d"
+
+[[members]]
+name = "player"
+type = "ContractAddress"
+key = true
+
+[[members]]
+name = "gold"
+type = "u64"
+key = false

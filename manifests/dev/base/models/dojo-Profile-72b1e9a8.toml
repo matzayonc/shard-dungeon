@@ -1,0 +1,16 @@
+kind = "DojoModel"
+class_hash = "0x122642b5ddaf94ffec9bf16819c5bfd8ac54607b1a1146d77ce3a9395b95b77"
+original_class_hash = "0x122642b5ddaf94ffec9bf16819c5bfd8ac54607b1a1146d77ce3a9395b95b77"
+abi = "manifests/dev/base/abis/models/dojo-Profile-72b1e9a8.json"
+tag = "dojo-Profile"
+manifest_name = "dojo-Profile-72b1e9a8"
+
+[[members]]
+name = "player"
+type = "ContractAddress"
+key = true
+
+[[members]]
+name = "name"
+type = "ByteArray"
+key = false

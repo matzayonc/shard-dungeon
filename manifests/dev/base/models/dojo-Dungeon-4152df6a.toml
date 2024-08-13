@@ -1,0 +1,41 @@
+kind = "DojoModel"
+class_hash = "0x176d6ba845841e7223b67a98a7a232963b9bbc8476b856f9554959b47c50b82"
+original_class_hash = "0x176d6ba845841e7223b67a98a7a232963b9bbc8476b856f9554959b47c50b82"
+abi = "manifests/dev/base/abis/models/dojo-Dungeon-4152df6a.json"
+tag = "dojo-Dungeon"
+manifest_name = "dojo-Dungeon-4152df6a"
+
+[[members]]
+name = "player"
+type = "ContractAddress"
+key = true
+
+[[members]]
+name = "moves"
+type = "u16"
+key = false
+
+[[members]]
+name = "boss_health"
+type = "u8"
+key = false
+
+[[members]]
+name = "gained_experience"
+type = "u64"
+key = false
+
+[[members]]
+name = "gold_in_purse"
+type = "u64"
+key = false
+
+[[members]]
+name = "starting_gold"
+type = "u64"
+key = false
+
+[[members]]
+name = "minimum_gold"
+type = "u64"
+key = false

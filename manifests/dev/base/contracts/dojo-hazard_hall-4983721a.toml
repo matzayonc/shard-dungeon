@@ -1,0 +1,10 @@
+kind = "DojoContract"
+class_hash = "0x31f03f7b590abc574320952586999d48ee777317f4e77edc6e146c93f1a887b"
+original_class_hash = "0x31f03f7b590abc574320952586999d48ee777317f4e77edc6e146c93f1a887b"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/dojo-hazard_hall-4983721a.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "dojo-hazard_hall"
+manifest_name = "dojo-hazard_hall-4983721a"

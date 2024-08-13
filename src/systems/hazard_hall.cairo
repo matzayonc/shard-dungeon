@@ -5,8 +5,6 @@
 /// Currently, this contract is being deployed by Sozo during `sozo migrate apply`.
 /// We may skip this contract deployment and let the shard doing so. We only need it
 /// to be declared.
-use option::{Option, OptionTrait};
-use result::Result;
 
 #[dojo::interface]
 trait IHazardHall {
